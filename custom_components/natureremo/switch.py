@@ -1,3 +1,5 @@
+"""Nature Remo as Switch"""
+
 # Import the device class
 from homeassistant.components.switch import SwitchDevice, PLATFORM_SCHEMA
 
@@ -34,10 +36,10 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 
     # Add appliances on Remo to Home Assistant as device
     _LOGGER.debug('Finding appliances on Nature Remo...')
-    add_devices(NatureRemo(appliance) for appliance in remo.find_appliances())
+    add_devices(NatureRemoSwitch(appliance) for appliance in remo.find_appliances())
 
 
-class NatureRemo(SwitchDevice):
+class NatureRemoSwitch(SwitchDevice):
 
     def __init__(self, appliance) -> None:
         """Initialzing appliance of Nature Remo...."""

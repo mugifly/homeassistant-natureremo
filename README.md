@@ -2,7 +2,7 @@
 
 Home Assistant platform for Nature Remo.
 
-In currently, It supports the `switch` component only.
+In currently, It supports `switch` and `sensor` component only.
 
 
 ----
@@ -16,7 +16,7 @@ In currently, It supports the `switch` component only.
 
     * I tested on Hass.io 0.89.2.
 
-    * For now, this software can't control the air conditioner.
+    * For now, this software can't control the Air Conditioners and the TVs.
 
 * I don't any guarantee about this project.
 
@@ -52,7 +52,12 @@ On Your Home Assistant server (Hass.io):
 In `configuration.yaml`:
 ```
 switch:
-  # Nature Remo
+  # Appliances via Nature Remo
+  - platform: natureremo
+    access_token: 'YOUR_ACCESS_TOKEN'
+
+sensor:
+  # Temperature and Humidity on Nature Remo
   - platform: natureremo
     access_token: 'YOUR_ACCESS_TOKEN'
 ```
